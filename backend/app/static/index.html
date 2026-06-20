@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuard-ML Core - Wildlife Threat Intelligence Portal</title>
+    <!-- Modern typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%);
+            --glass-bg: rgba(30, 41, 59, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-glow: rgba(99, 102, 241, 0.15);
+            
+            --color-primary: #6366f1; /* Indigo */
+            --color-accent: #14b8a6; /* Teal */
+            --color-warning: #f59e0b; /* Amber */
+            --color-danger: #ef4444; /* Rose */
+            --color-success: #10b981; /* Emerald */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        /* Ambient floating blobs */
+        .ambient-blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .blob-1 {
+            background: var(--color-primary);
+            top: 10%;
+            left: 15%;
+            animation: float 20s infinite alternate;
+        }
+
+        .blob-2 {
+            background: var(--color-accent);
+            bottom: 15%;
+            right: 10%;
+            animation: float 25s infinite alternate-reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -40px) scale(1.1); }
+            100% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Glassmorphic Shell */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 32px;
+            margin-bottom: 24px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-title h1 {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-title p {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+
+        .header-links a:hover {
+            color: var(--text-main);
+            background: rgba(255,255,255,0.05);
+            border-color: var(--glass-border);
+        }
+
+        /* Dashboard grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-primary);
+        }
+
+        .stat-card.accent::after { background: var(--color-accent); }
+        .stat-card.warning::after { background: var(--color-warning); }
+        .stat-card.danger::after { background: var(--color-danger); }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        /* Glassdoor Job-Board Layout */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 24px;
+            flex: 1;
+            min-height: 550px;
+        }
+
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 650px;
+        }
+
+        .panel-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h2 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-tab {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            color: var(--text-main);
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .card-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Glassdoor Card format */
+        .glassdoor-card {
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .glassdoor-card:hover, .glassdoor-card.active {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-danger { background: rgba(239, 68, 68, 0.15); color: var(--color-danger); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .badge-warning { background: rgba(245, 158, 11, 0.15); color: var(--color-warning); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .badge-success { background: rgba(16, 185, 129, 0.15); color: var(--color-success); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge-info { background: rgba(99, 102, 241, 0.15); color: var(--color-primary); border: 1px solid rgba(99, 102, 241, 0.2); }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Detail container */
+        .detail-panel {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 650px;
+        }
+
+        .detail-placeholder {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            gap: 16px;
+            text-align: center;
+        }
+
+        .detail-placeholder svg {
+            width: 64px;
+            height: 64px;
+            opacity: 0.15;
+            color: var(--text-main);
+        }
+
+        /* Detail presentation styles */
+        .detail-title-section {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .detail-title h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .detail-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+        }
+
+        .detail-section {
+            margin-bottom: 24px;
+        }
+
+        .detail-section h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .grid-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .info-pill {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .info-pill-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-pill-val {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .detail-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Predictor Sandbox styling */
+        .predictor-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 24px;
+        }
+
+        .predictor-form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 10px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--color-primary);
+            outline: none;
+        }
+
+        .btn-predict {
+            grid-column: span 3;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            margin-top: 10px;
+        }
+
+        .btn-predict:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-predict:active {
+            transform: translateY(1px);
+        }
+
+        .prediction-result-panel {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border: 1px dashed var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pred-gauge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0) 70%);
+            border: 6px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            box-shadow: inset 0 0 12px rgba(99,102,241,0.1);
+        }
+
+        .pred-gauge.high { border-color: var(--color-danger); color: var(--color-danger); box-shadow: 0 0 16px rgba(239, 68, 68, 0.2), inset 0 0 12px rgba(239, 68, 68, 0.1); }
+        .pred-gauge.medium { border-color: var(--color-warning); color: var(--color-warning); box-shadow: 0 0 16px rgba(245, 158, 11, 0.2), inset 0 0 12px rgba(245, 158, 11, 0.1); }
+        .pred-gauge.low { border-color: var(--color-success); color: var(--color-success); box-shadow: 0 0 16px rgba(16, 185, 129, 0.2), inset 0 0 12px rgba(16, 185, 129, 0.1); }
+
+        .pred-level-label {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .pred-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* General layout blocks */
+        .workspace-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ws-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ws-tab.active, .ws-tab:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+            color: var(--text-main);
+        }
+
+        .ws-container {
+            display: none;
+        }
+
+        .ws-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+
+    <!-- Header bar -->
+    <header class="glass-card">
+        <div class="logo-container">
+            <div class="logo-icon">EG</div>
+            <div class="logo-title">
+                <h1>EcoGuard-ML Core</h1>
+                <p>Wildlife Threat Intelligence Platform</p>
+            </div>
+        </div>
+        <div class="header-links">
+            <a href="/docs" target="_blank">Swagger OpenAPI Docs</a>
+        </div>
+    </header>
+
+    <!-- Top Quick stats -->
+    <div class="dashboard-grid">
+        <div class="glass-card stat-card danger">
+            <div class="stat-label">Critical Alerts</div>
+            <div class="stat-val" id="stat-alerts-count">--</div>
+        </div>
+        <div class="glass-card stat-card warning">
+            <div class="stat-label">High-Risk Zones</div>
+            <div class="stat-val" id="stat-zones-count">--</div>
+        </div>
+        <div class="glass-card stat-card accent">
+            <div class="stat-label">Model Accuracy</div>
+            <div class="stat-val">92.53%</div>
+        </div>
+        <div class="glass-card stat-card">
+            <div class="stat-label">Active Hotspots</div>
+            <div class="stat-val" id="stat-hotspots-count">--</div>
+        </div>
+    </div>
+
+    <!-- Layout Switcher tabs -->
+    <div class="workspace-tabs">
+        <div class="ws-tab active" onclick="switchTab('analytics-view')">Tactical Intelligence Dashboard</div>
+        <div class="ws-tab" onclick="switchTab('predictor-view')">Model Prediction Sandbox</div>
+    </div>
+
+    <!-- Workspace A: Dashboard -->
+    <div id="analytics-view" class="ws-container active">
+        <div class="workspace">
+            <!-- Left Cards: Glassdoor Format -->
+            <div class="glass-card side-panel">
+                <div class="panel-header">
+                    <h2>Threat Registers</h2>
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="setFilter('alerts')">Alerts</button>
+                    <button class="filter-tab" onclick="setFilter('patrols')">Patrols</button>
+                    <button class="filter-tab" onclick="setFilter('forecasts')">Forecasts</button>
+                </div>
+                <div class="card-list" id="threat-card-list">
+                    <!-- Loaded dynamically via js -->
+                    <div style="text-align: center; color: var(--text-muted); font-size: 13px; padding-top: 50px;">Loading assets...</div>
+                </div>
+            </div>
+
+            <!-- Right details Panel -->
+            <div class="glass-card detail-panel" id="detail-panel-content">
+                <div class="detail-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                    </svg>
+                    <div>
+                        <h3>No Incident Selected</h3>
+                        <p>Select a card from the Threat Registers left panel to query coordinates, threat weights, and route costs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workspace B: Predictor -->
+    <div id="predictor-view" class="ws-container">
+        <div class="glass-card detail-panel">
+            <div class="detail-title-section" style="border: none; margin: 0; padding-bottom: 12px;">
+                <div class="detail-title">
+                    <h3>XGBoost Model Prediction Sandbox</h3>
+                    <p style="color: var(--text-muted); font-size: 13px;">Preprocesses raw telemetry inputs on the fly to yield poaching risk probability.</p>
+                </div>
+            </div>
+            
+            <div class="predictor-container">
+                <div class="predictor-form">
+                    <div class="form-group">
+                        <label for="latitude">Latitude (Serengeti)</label>
+                        <input type="number" step="0.0001" id="latitude" value="-2.1883" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude">Longitude (Serengeti)</label>
+                        <input type="number" step="0.0001" id="longitude" value="34.7321" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="temperature">Temperature (°C)</label>
+                        <input type="number" step="0.1" id="temperature" value="25.5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="humidity">Humidity (%)</label>
+                        <input type="number" step="0.1" id="humidity" value="65.0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rainfall">Rainfall (mm)</label>
+                        <input type="number" step="0.1" id="rainfall" value="0.0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="animal_density">Animal Density Score</label>
+                        <input type="number" step="1" id="animal_density" value="45" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dist_road">Distance to Road (m)</label>
+                        <input type="number" step="0.1" id="dist_road" value="1200" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dist_water">Distance to Water (m)</label>
+                        <input type="number" step="0.1" id="dist_water" value="2800" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dist_ranger">Distance to Ranger (m)</label>
+                        <input type="number" step="0.1" id="dist_ranger" value="8500" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="elevation">Elevation (m)</label>
+                        <input type="number" step="0.1" id="elevation" value="1380" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="historical_incidents">Historical Incidents</label>
+                        <input type="number" step="1" id="historical_incidents" value="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="acoustic_risk">Acoustic Threat (0-1)</label>
+                        <input type="number" step="0.01" id="acoustic_risk" value="0.35" min="0" max="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hour">Hour of Event (0-23)</label>
+                        <input type="number" id="hour" value="23" min="0" max="23" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month of Event (1-12)</label>
+                        <input type="number" id="month" value="7" min="1" max="12" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="season">Season</label>
+                        <select id="season">
+                            <option value="Dry" selected>Dry</option>
+                            <option value="Wet">Wet</option>
+                            <option value="Short Dry">Short Dry</option>
+                            <option value="Short Wet">Short Wet</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="grid-column: span 3;">
+                        <label for="species">Species Detected</label>
+                        <select id="species" style="width: 100%;">
+                            <option value="Elephant">Elephant</option>
+                            <option value="Rhino">Rhino</option>
+                            <option value="Lion">Lion</option>
+                            <option value="Buffalo">Buffalo</option>
+                            <option value="Zebra" selected>Zebra</option>
+                            <option value="None Detected">None Detected</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-predict" onclick="runSandboxPrediction()">Evaluate Poaching Threat Level</button>
+                </div>
+                
+                <div class="prediction-result-panel" id="sandbox-result">
+                    <div class="pred-gauge">--</div>
+                    <div class="pred-level-label">Awaiting Input</div>
+                    <div class="pred-desc">Submit form values to fetch inference prediction from the XGBoost serving backend.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables holding parsed reports
+        let currentFilter = 'alerts';
+        let alertsData = [];
+        let patrolsData = [];
+        let forecastsData = [];
+        let selectedIndex = -1;
+
+        // Startup triggers
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchStats();
+            fetchData('alerts');
+        });
+
+        function switchTab(viewId) {
+            document.querySelectorAll('.ws-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.ws-tab').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(viewId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Fetch counts for stat headers
+        async function fetchStats() {
+            try {
+                const alertsRes = await fetch('/alerts');
+                const alerts = await alertsRes.json();
+                document.getElementById('stat-alerts-count').innerText = Array.isArray(alerts) ? alerts.length : 0;
+                
+                const zonesRes = await fetch('/zones/high-risk');
+                const zones = await zonesRes.json();
+                document.getElementById('stat-zones-count').innerText = Array.isArray(zones) ? zones.length : 0;
+                
+                const hotspotsRes = await fetch('/hotspots');
+                const hotspots = await hotspotsRes.json();
+                document.getElementById('stat-hotspots-count').innerText = Array.isArray(hotspots) ? hotspots.length : 0;
+            } catch (err) {
+                console.error("Failed to load header dashboard stats:", err);
+            }
+        }
+
+        function setFilter(type) {
+            currentFilter = type;
+            document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            fetchData(type);
+        }
+
+        async function fetchData(type) {
+            const listEl = document.getElementById('threat-card-list');
+            listEl.innerHTML = '<div style="text-align: center; color: var(--text-muted); font-size: 13px; padding-top: 50px;">Fetching from backend...</div>';
+            
+            try {
+                let url = '';
+                if (type === 'alerts') url = '/alerts';
+                else if (type === 'patrols') url = '/patrols';
+                else if (type === 'forecasts') url = '/forecast';
+                
+                const res = await fetch(url);
+                const data = await res.json();
+                
+                if (type === 'alerts') {
+                    alertsData = data;
+                    renderAlertsCards(data);
+                } else if (type === 'patrols') {
+                    patrolsData = data;
+                    renderPatrolsCards(data);
+                } else if (type === 'forecasts') {
+                    forecastsData = data;
+                    renderForecastsCards(data);
+                }
+            } catch (err) {
+                listEl.innerHTML = `<div style="text-align: center; color: var(--color-danger); font-size: 13px; padding-top: 50px;">Error: ${err.message}</div>`;
+            }
+        }
+
+        // Render card lists matching Glassdoor formats
+        function renderAlertsCards(alerts) {
+            const listEl = document.getElementById('threat-card-list');
+            if (!Array.isArray(alerts) || alerts.length === 0) {
+                listEl.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding-top: 50px;">No alerts generated.</div>';
+                return;
+            }
+
+            listEl.innerHTML = '';
+            alerts.forEach((alert, i) => {
+                const bStyle = alert.priority_level === 'High' ? 'badge-danger' : 'badge-warning';
+                
+                const card = document.createElement('div');
+                card.className = 'glassdoor-card';
+                card.onclick = () => selectCard(i);
+                card.innerHTML = `
+                    <div class="card-title-row">
+                        <span class="card-title">${alert.zone_id}</span>
+                        <span class="badge ${bStyle}">${alert.priority_level}</span>
+                    </div>
+                    <div class="card-desc">${alert.description}</div>
+                    <div class="card-footer-row">
+                        <span>Type: ${alert.alert_type}</span>
+                        <span>Active status</span>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        function renderPatrolsCards(patrols) {
+            const listEl = document.getElementById('threat-card-list');
+            if (!Array.isArray(patrols) || patrols.length === 0) {
+                listEl.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding-top: 50px;">No patrols generated.</div>';
+                return;
+            }
+
+            listEl.innerHTML = '';
+            patrols.forEach((patrol, i) => {
+                const bStyle = patrol.patrol_priority === 'High' ? 'badge-danger' : patrol.patrol_priority === 'Medium' ? 'badge-warning' : 'badge-success';
+                
+                const card = document.createElement('div');
+                card.className = 'glassdoor-card';
+                card.onclick = () => selectCard(i);
+                card.innerHTML = `
+                    <div class="card-title-row">
+                        <span class="card-title">${patrol.zone_id}</span>
+                        <span class="badge ${bStyle}">${patrol.patrol_priority} Priority</span>
+                    </div>
+                    <div class="card-desc">Coverage score aggregates waterhole availability and elevation cost values.</div>
+                    <div class="card-footer-row">
+                        <span>Distance: ${patrol.route_distance.toFixed(1)} km</span>
+                        <span>Coverage: ${patrol.coverage_score.toFixed(1)}%</span>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        function renderForecastsCards(forecasts) {
+            const listEl = document.getElementById('threat-card-list');
+            if (!Array.isArray(forecasts) || forecasts.length === 0) {
+                listEl.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding-top: 50px;">No forecasts generated.</div>';
+                return;
+            }
+
+            listEl.innerHTML = '';
+            forecasts.forEach((fc, i) => {
+                const bStyle = fc.resource_priority === 'High' ? 'badge-danger' : fc.resource_priority === 'Medium' ? 'badge-warning' : 'badge-success';
+                
+                const card = document.createElement('div');
+                card.className = 'glassdoor-card';
+                card.onclick = () => selectCard(i);
+                card.innerHTML = `
+                    <div class="card-title-row">
+                        <span class="card-title">${fc.zone}</span>
+                        <span class="badge ${bStyle}">${fc.resource_priority} Priority</span>
+                    </div>
+                    <div class="card-desc">30-day Prophet time-series risk trends binned forecast.</div>
+                    <div class="card-footer-row">
+                        <span>Predicted Risk: ${fc.predicted_risk.toFixed(4)}</span>
+                        <span>Freq: ${fc.patrol_frequency.split(' ')[0]}</span>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        function selectCard(idx) {
+            selectedIndex = idx;
+            document.querySelectorAll('.glassdoor-card').forEach((card, i) => {
+                if (i === idx) card.classList.add('active');
+                else card.classList.remove('active');
+            });
+            renderDetails();
+        }
+
+        // Render detail view based on active list selection
+        function renderDetails() {
+            const detailEl = document.getElementById('detail-panel-content');
+            if (selectedIndex === -1) return;
+
+            if (currentFilter === 'alerts') {
+                const item = alertsData[selectedIndex];
+                detailEl.innerHTML = `
+                    <div class="detail-title-section">
+                        <div class="detail-title">
+                            <h3>${item.zone_id} Alerts Summary</h3>
+                            <p style="color: var(--text-muted); margin-top: 4px;">Tactical alert triggered by sensor signals</p>
+                        </div>
+                        <span class="badge ${item.priority_level === 'High' ? 'badge-danger' : 'badge-warning'}" style="font-size: 12px; padding: 6px 12px;">${item.priority_level} Priority</span>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Alert Description</h4>
+                        <div class="detail-card">${item.description}</div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Zone Parameter Details</h4>
+                        <div class="grid-details">
+                            <div class="info-pill">
+                                <div class="info-pill-label">Alert Type</div>
+                                <div class="info-pill-val" style="font-size: 14px; color: var(--color-primary);">${item.alert_type}</div>
+                            </div>
+                            <div class="info-pill">
+                                <div class="info-pill-label">Status</div>
+                                <div class="info-pill-val" style="font-size: 14px; color: var(--color-success);">ACTIVE</div>
+                            </div>
+                            <div class="info-pill">
+                                <div class="info-pill-label">Ranger Dispatch</div>
+                                <div class="info-pill-val" style="font-size: 14px;">RECOMMENDED</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (currentFilter === 'patrols') {
+                const item = patrolsData[selectedIndex];
+                detailEl.innerHTML = `
+                    <div class="detail-title-section">
+                        <div class="detail-title">
+                            <h3>Optimized Route: ${item.zone_id}</h3>
+                            <p style="color: var(--text-muted); margin-top: 4px;">Corridor computed by operations research routing models</p>
+                        </div>
+                        <span class="badge ${item.patrol_priority === 'High' ? 'badge-danger' : item.patrol_priority === 'Medium' ? 'badge-warning' : 'badge-success'}" style="font-size: 12px; padding: 6px 12px;">${item.patrol_priority} Risk</span>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Routing Plan Metrics</h4>
+                        <div class="grid-details">
+                            <div class="info-pill">
+                                <div class="info-pill-label">Path Distance</div>
+                                <div class="info-pill-val">${item.route_distance.toFixed(2)} km</div>
+                            </div>
+                            <div class="info-pill">
+                                <div class="info-pill-label">Travel Time</div>
+                                <div class="info-pill-val">${item.estimated_travel_time.toFixed(2)} hrs</div>
+                            </div>
+                            <div class="info-pill">
+                                <div class="info-pill-label">Coverage Index</div>
+                                <div class="info-pill-val">${item.coverage_score.toFixed(2)}%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4>Operational Instructions</h4>
+                        <div class="detail-card">
+                            Ranger squads originating from nearby outposts must cross the patrol corridor targeting waterholes. 
+                            The estimated travel time is calculated based on a walking speed of 4.5 km/hr adjusted for slope barriers and road proximity. 
+                            <strong>Priority level: ${item.patrol_priority}</strong>. Ensure communications checks are performed before entering.
+                        </div>
+                    </div>
+                `;
+            } else if (currentFilter === 'forecasts') {
+                const item = forecastsData[selectedIndex];
+                detailEl.innerHTML = `
+                    <div class="detail-title-section">
+                        <div class="detail-title">
+                            <h3>30-Day Risk Forecast: ${item.zone}</h3>
+                            <p style="color: var(--text-muted); margin-top: 4px;">Time series extrapolation using Prophet seasonality</p>
+                        </div>
+                        <span class="badge ${item.resource_priority === 'High' ? 'badge-danger' : 'badge-warning'}" style="font-size: 12px; padding: 6px 12px;">${item.resource_priority} Priority</span>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Prophet Predictions</h4>
+                        <div class="grid-details">
+                            <div class="info-pill">
+                                <div class="info-pill-label">Predicted Risk Score</div>
+                                <div class="info-pill-val" style="color: var(--color-primary);">${item.predicted_risk.toFixed(5)}</div>
+                            </div>
+                            <div class="info-pill" style="grid-column: span 2;">
+                                <div class="info-pill-label">Patrol Frequency</div>
+                                <div class="info-pill-val" style="font-size: 14px;">${item.patrol_frequency}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h4>Escalation Briefing</h4>
+                        <div class="detail-card">
+                            Based on historical incident cycles, this zone registers seasonal poaching rises during dry periods. 
+                            The recommended deployment cadence is <strong>${item.patrol_frequency}</strong>. 
+                            Allocate tactical gear and acoustic listening meshes accordingly.
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // POST /predict dynamic calling
+        async function runSandboxPrediction() {
+            const resultPanel = document.getElementById('sandbox-result');
+            resultPanel.innerHTML = '<div style="color: var(--text-muted);">Running XGBoost inference...</div>';
+            
+            const payload = {
+                latitude: parseFloat(document.getElementById('latitude').value),
+                longitude: parseFloat(document.getElementById('longitude').value),
+                temperature: parseFloat(document.getElementById('temperature').value),
+                humidity: parseFloat(document.getElementById('humidity').value),
+                rainfall: parseFloat(document.getElementById('rainfall').value),
+                animal_density_score: parseFloat(document.getElementById('animal_density').value),
+                distance_to_road: parseFloat(document.getElementById('dist_road').value),
+                distance_to_water: parseFloat(document.getElementById('dist_water').value),
+                distance_to_ranger_station: parseFloat(document.getElementById('dist_ranger').value),
+                elevation: parseFloat(document.getElementById('elevation').value),
+                historical_incident_count: parseFloat(document.getElementById('historical_incidents').value),
+                acoustic_risk: parseFloat(document.getElementById('acoustic_risk').value),
+                hour: parseInt(document.getElementById('hour').value),
+                month: parseInt(document.getElementById('month').value),
+                season: document.getElementById('season').value,
+                species: document.getElementById('species').value
+            };
+
+            try {
+                const res = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.detail ? JSON.stringify(err.detail) : 'Server error');
+                }
+                
+                const data = await res.json();
+                
+                const pct = (data.risk_probability * 100).toFixed(1) + '%';
+                const cls = data.risk_level.toLowerCase();
+                
+                resultPanel.innerHTML = `
+                    <div class="pred-gauge ${cls}">${pct}</div>
+                    <div class="pred-level-label" style="color: var(--color-${cls === 'high' ? 'danger' : cls === 'medium' ? 'warning' : 'success'})">${data.risk_level} Risk</div>
+                    <div class="pred-desc">
+                        Model predicts a ${pct} poaching incident probability for this location configuration. 
+                        Preprocessed cyclical and categorical features align with baseline specifications.
+                    </div>
+                `;
+            } catch (err) {
+                resultPanel.innerHTML = `
+                    <div style="color: var(--color-danger); font-size: 14px; font-weight: 700;">Prediction Failed</div>
+                    <div class="pred-desc" style="color: var(--color-danger); margin-top: 8px;">${err.message}</div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

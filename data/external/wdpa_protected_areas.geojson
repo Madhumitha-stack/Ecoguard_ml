@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[34.6, -2.4], [35.4, -2.4], [35.4, -1.6], [34.6, -1.6], [34.6, -2.4]]]}, "properties": {"name": "Serengeti National Park", "wdpaid": 99999, "status": "designated"}}]}
