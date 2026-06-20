@@ -1,0 +1,22 @@
+Zone ID,Alert Type,Description,Priority Level
+ZONE_A01,Increased Night Activity,Over 45.1% of poaching violations occur during late-night hours (22:00 to 04:00).,Medium
+ZONE_A02,Increased Night Activity,Over 55.9% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_A03,Increased Night Activity,Over 57.1% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_A04,Increased Night Activity,Over 56.0% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_A05,Increased Night Activity,Over 80.0% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_B01,Increased Night Activity,Over 48.3% of poaching violations occur during late-night hours (22:00 to 04:00).,Medium
+ZONE_B02,Increased Night Activity,Over 51.6% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_B03,Increased Night Activity,Over 44.4% of poaching violations occur during late-night hours (22:00 to 04:00).,Medium
+ZONE_B04,Increased Night Activity,Over 78.9% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_B05,Increased Night Activity,Over 62.2% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_C01,Increased Night Activity,Over 76.5% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_D01,Increased Night Activity,Over 66.7% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_D02,Increased Night Activity,Over 55.6% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_D04,Increased Night Activity,Over 75.0% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_D05,Increased Night Activity,Over 78.6% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_E01,Increased Night Activity,Over 60.0% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_E02,Increased Night Activity,Over 50.0% of poaching violations occur during late-night hours (22:00 to 04:00).,Medium
+ZONE_E05,Increased Night Activity,Over 66.7% of poaching violations occur during late-night hours (22:00 to 04:00).,High
+ZONE_B02,Escalating Hotspot,Zone has a high historical footprint of 33.0 incidents and forecasted risk remains elevated.,High
+ZONE_B01,Escalating Hotspot,Zone has a high historical footprint of 31.0 incidents and forecasted risk remains elevated.,High
+ZONE_A01,Escalating Hotspot,Zone has a high historical footprint of 24.0 incidents and forecasted risk remains elevated.,High

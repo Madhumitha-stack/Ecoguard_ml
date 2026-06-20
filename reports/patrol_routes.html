@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ab39386bd7e35f2709dafe952a758b60 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ab39386bd7e35f2709dafe952a758b60" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ab39386bd7e35f2709dafe952a758b60 = L.map(
+                "map_ab39386bd7e35f2709dafe952a758b60",
+                {
+                    center: [-2.031003368243347, 34.9502379527843],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_983b0653de7dfc3d437ae771b0d6ade7 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_983b0653de7dfc3d437ae771b0d6ade7.addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            var circle_marker_2a57da6f0e29e47f794e0e20475c08ca = L.circleMarker(
+                [-2.401825368956743, 34.599536259541985],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_b9abcbb5d15da589320ff68fb2d01c9e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0fda23c6f58e41708d066ddab2fa2c8e = $(`<div id="html_0fda23c6f58e41708d066ddab2fa2c8e" style="width: 100.0%; height: 100.0%;">Zone: ZONE_A01<br>Risk: 0.1771<br>Terrain Cost: 1.84</div>`)[0];
+                popup_b9abcbb5d15da589320ff68fb2d01c9e.setContent(html_0fda23c6f58e41708d066ddab2fa2c8e);
+            
+        
+
+        circle_marker_2a57da6f0e29e47f794e0e20475c08ca.bindPopup(popup_b9abcbb5d15da589320ff68fb2d01c9e)
+        ;
+
+        
+    
+    
+            var circle_marker_dd09e932ff72cdcd33488b3cf279cb98 = L.circleMarker(
+                [-2.3996996153846153, 34.80330964102564],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_5cb151267ef655749e3f97c6edd7be6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d392a8c264bc26cc8165036decc0d75 = $(`<div id="html_1d392a8c264bc26cc8165036decc0d75" style="width: 100.0%; height: 100.0%;">Zone: ZONE_A02<br>Risk: 0.2182<br>Terrain Cost: 2.43</div>`)[0];
+                popup_5cb151267ef655749e3f97c6edd7be6f.setContent(html_1d392a8c264bc26cc8165036decc0d75);
+            
+        
+
+        circle_marker_dd09e932ff72cdcd33488b3cf279cb98.bindPopup(popup_5cb151267ef655749e3f97c6edd7be6f)
+        ;
+
+        
+    
+    
+            var circle_marker_92d6e4bd85d4d9dd96e30f7b4454a923 = L.circleMarker(
+                [-2.399591956521739, 34.99833884057971],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_aa88b7f2100f1e2e011c9173c9413515 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4463d40291c182855db3645f99eea1b = $(`<div id="html_d4463d40291c182855db3645f99eea1b" style="width: 100.0%; height: 100.0%;">Zone: ZONE_A03<br>Risk: 0.0483<br>Terrain Cost: 3.46</div>`)[0];
+                popup_aa88b7f2100f1e2e011c9173c9413515.setContent(html_d4463d40291c182855db3645f99eea1b);
+            
+        
+
+        circle_marker_92d6e4bd85d4d9dd96e30f7b4454a923.bindPopup(popup_aa88b7f2100f1e2e011c9173c9413515)
+        ;
+
+        
+    
+    
+            var circle_marker_9115c730150d1bc1dd55ac96e3157501 = L.circleMarker(
+                [-2.401306172839506, 35.199533308641975],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_70c581f5b4282c8d21be275c0e4f1ab9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_059e7999f143464656febf0a7b19a2c8 = $(`<div id="html_059e7999f143464656febf0a7b19a2c8" style="width: 100.0%; height: 100.0%;">Zone: ZONE_A04<br>Risk: 0.0898<br>Terrain Cost: 3.43</div>`)[0];
+                popup_70c581f5b4282c8d21be275c0e4f1ab9.setContent(html_059e7999f143464656febf0a7b19a2c8);
+            
+        
+
+        circle_marker_9115c730150d1bc1dd55ac96e3157501.bindPopup(popup_70c581f5b4282c8d21be275c0e4f1ab9)
+        ;
+
+        
+    
+    
+            var circle_marker_e3c382d4e50822e5eb7c78c8ffe70762 = L.circleMarker(
+                [-2.3985402494331063, 35.402927777777776],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_192ee0db92920165c4c37ef38fb253c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_232ee82e23ab347b60eb9dd23a132c75 = $(`<div id="html_232ee82e23ab347b60eb9dd23a132c75" style="width: 100.0%; height: 100.0%;">Zone: ZONE_A05<br>Risk: 0.0507<br>Terrain Cost: 2.08</div>`)[0];
+                popup_192ee0db92920165c4c37ef38fb253c1.setContent(html_232ee82e23ab347b60eb9dd23a132c75);
+            
+        
+
+        circle_marker_e3c382d4e50822e5eb7c78c8ffe70762.bindPopup(popup_192ee0db92920165c4c37ef38fb253c1)
+        ;
+
+        
+    
+    
+            var circle_marker_a608f5cbb78b4ca9a5f7f77e4a581e25 = L.circleMarker(
+                [-2.203337688442211, 34.59435472361809],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_7a3ddfcdfe698b77fce8aeb220ca4a36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a08385e8798f87038cc86768d68be936 = $(`<div id="html_a08385e8798f87038cc86768d68be936" style="width: 100.0%; height: 100.0%;">Zone: ZONE_B01<br>Risk: 0.4561<br>Terrain Cost: 3.71</div>`)[0];
+                popup_7a3ddfcdfe698b77fce8aeb220ca4a36.setContent(html_a08385e8798f87038cc86768d68be936);
+            
+        
+
+        circle_marker_a608f5cbb78b4ca9a5f7f77e4a581e25.bindPopup(popup_7a3ddfcdfe698b77fce8aeb220ca4a36)
+        ;
+
+        
+    
+    
+            var circle_marker_ce855c7fa4db34fe2b67f86fe6a22563 = L.circleMarker(
+                [-2.1969759090909093, 34.79939487373737],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_ab3efc5d4c3926c6e7d7883e36acaa98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_73eefd16e342ef1486316164fdc36ac5 = $(`<div id="html_73eefd16e342ef1486316164fdc36ac5" style="width: 100.0%; height: 100.0%;">Zone: ZONE_B02<br>Risk: 0.4914<br>Terrain Cost: 4.99</div>`)[0];
+                popup_ab3efc5d4c3926c6e7d7883e36acaa98.setContent(html_73eefd16e342ef1486316164fdc36ac5);
+            
+        
+
+        circle_marker_ce855c7fa4db34fe2b67f86fe6a22563.bindPopup(popup_ab3efc5d4c3926c6e7d7883e36acaa98)
+        ;
+
+        
+    
+    
+            var circle_marker_21fa0f0b698349fa804f650681acf36b = L.circleMarker(
+                [-2.2009943609022553, 34.99856523809524],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_589fe025891859205b0617cced09e106 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aa87addf272b823021ddf0a5e43498e8 = $(`<div id="html_aa87addf272b823021ddf0a5e43498e8" style="width: 100.0%; height: 100.0%;">Zone: ZONE_B03<br>Risk: 0.0620<br>Terrain Cost: 6.51</div>`)[0];
+                popup_589fe025891859205b0617cced09e106.setContent(html_aa87addf272b823021ddf0a5e43498e8);
+            
+        
+
+        circle_marker_21fa0f0b698349fa804f650681acf36b.bindPopup(popup_589fe025891859205b0617cced09e106)
+        ;
+
+        
+    
+    
+            var circle_marker_279c7f3e780337c2384eef0285e205ee = L.circleMarker(
+                [-2.197652632794457, 35.202882517321015],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_3f2325ba3824b366693fbc0e21e80a91 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fdc24b3980ae82935da0065728ed2e5f = $(`<div id="html_fdc24b3980ae82935da0065728ed2e5f" style="width: 100.0%; height: 100.0%;">Zone: ZONE_B04<br>Risk: 0.0654<br>Terrain Cost: 6.04</div>`)[0];
+                popup_3f2325ba3824b366693fbc0e21e80a91.setContent(html_fdc24b3980ae82935da0065728ed2e5f);
+            
+        
+
+        circle_marker_279c7f3e780337c2384eef0285e205ee.bindPopup(popup_3f2325ba3824b366693fbc0e21e80a91)
+        ;
+
+        
+    
+    
+            var circle_marker_bba8aa9d808cf9b7b39a86205d5af09e = L.circleMarker(
+                [-2.2007515424164525, 35.401935706940876],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_64e09295c9adeff8190416d628fae231 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e3816167278330a195bed68e75c38d89 = $(`<div id="html_e3816167278330a195bed68e75c38d89" style="width: 100.0%; height: 100.0%;">Zone: ZONE_B05<br>Risk: 0.1341<br>Terrain Cost: 3.49</div>`)[0];
+                popup_64e09295c9adeff8190416d628fae231.setContent(html_e3816167278330a195bed68e75c38d89);
+            
+        
+
+        circle_marker_bba8aa9d808cf9b7b39a86205d5af09e.bindPopup(popup_64e09295c9adeff8190416d628fae231)
+        ;
+
+        
+    
+    
+            var circle_marker_1c8869df2688ab16d646908a02c5726b = L.circleMarker(
+                [-1.9985926341463416, 34.60084234146341],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_069c741860d202a2f05433fb812db59d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_71c06292163abcafa5d80dc11c17862e = $(`<div id="html_71c06292163abcafa5d80dc11c17862e" style="width: 100.0%; height: 100.0%;">Zone: ZONE_C01<br>Risk: 0.0554<br>Terrain Cost: 4.42</div>`)[0];
+                popup_069c741860d202a2f05433fb812db59d.setContent(html_71c06292163abcafa5d80dc11c17862e);
+            
+        
+
+        circle_marker_1c8869df2688ab16d646908a02c5726b.bindPopup(popup_069c741860d202a2f05433fb812db59d)
+        ;
+
+        
+    
+    
+            var circle_marker_06327eead48450b9a88c651eb938fefe = L.circleMarker(
+                [-2.002039825436409, 34.80355578553616],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_238b99d954263d40fe99158b837e6f98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74fdd7be859bb33b13e9d8b8f9e31ab4 = $(`<div id="html_74fdd7be859bb33b13e9d8b8f9e31ab4" style="width: 100.0%; height: 100.0%;">Zone: ZONE_C02<br>Risk: 0.0411<br>Terrain Cost: 6.68</div>`)[0];
+                popup_238b99d954263d40fe99158b837e6f98.setContent(html_74fdd7be859bb33b13e9d8b8f9e31ab4);
+            
+        
+
+        circle_marker_06327eead48450b9a88c651eb938fefe.bindPopup(popup_238b99d954263d40fe99158b837e6f98)
+        ;
+
+        
+    
+    
+            var circle_marker_2d4cd74ba99b4646034a9b3fc77c8b4f = L.circleMarker(
+                [-1.8011883507853403, 34.604223324607325],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_65358f70ce8d644d387e5b6b315b97cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a5d1dfad2c6e6491e6d810733473389a = $(`<div id="html_a5d1dfad2c6e6491e6d810733473389a" style="width: 100.0%; height: 100.0%;">Zone: ZONE_D01<br>Risk: 0.0725<br>Terrain Cost: 3.52</div>`)[0];
+                popup_65358f70ce8d644d387e5b6b315b97cd.setContent(html_a5d1dfad2c6e6491e6d810733473389a);
+            
+        
+
+        circle_marker_2d4cd74ba99b4646034a9b3fc77c8b4f.bindPopup(popup_65358f70ce8d644d387e5b6b315b97cd)
+        ;
+
+        
+    
+    
+            var circle_marker_640f28a6cb0bd3ede30247f489a3418a = L.circleMarker(
+                [-1.8048787368421053, 34.799114921052634],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_2f2acbf5d2e9d1c3d1b2fddade8e977c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_882ae09e8f01b4277042ebcae5efd722 = $(`<div id="html_882ae09e8f01b4277042ebcae5efd722" style="width: 100.0%; height: 100.0%;">Zone: ZONE_D02<br>Risk: 0.0883<br>Terrain Cost: 6.06</div>`)[0];
+                popup_2f2acbf5d2e9d1c3d1b2fddade8e977c.setContent(html_882ae09e8f01b4277042ebcae5efd722);
+            
+        
+
+        circle_marker_640f28a6cb0bd3ede30247f489a3418a.bindPopup(popup_2f2acbf5d2e9d1c3d1b2fddade8e977c)
+        ;
+
+        
+    
+    
+            var circle_marker_ca6d7b535fb69d0bdcc9557a1c6c46c5 = L.circleMarker(
+                [-1.8028204050632912, 35.202235493670884],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_10951c17723ca053f76d8e5028471db7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2d3d5cbc662fac2a23e51714c6ea24a = $(`<div id="html_e2d3d5cbc662fac2a23e51714c6ea24a" style="width: 100.0%; height: 100.0%;">Zone: ZONE_D04<br>Risk: 0.0876<br>Terrain Cost: 7.04</div>`)[0];
+                popup_10951c17723ca053f76d8e5028471db7.setContent(html_e2d3d5cbc662fac2a23e51714c6ea24a);
+            
+        
+
+        circle_marker_ca6d7b535fb69d0bdcc9557a1c6c46c5.bindPopup(popup_10951c17723ca053f76d8e5028471db7)
+        ;
+
+        
+    
+    
+            var circle_marker_9bab82ac95ab03333f3cead9c0e0daf2 = L.circleMarker(
+                [-1.8015659547738692, 35.401856457286435],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_d41cc66ec7f15c33b2665a30598550d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01214023bf20ea6d06fdab0d0254e82e = $(`<div id="html_01214023bf20ea6d06fdab0d0254e82e" style="width: 100.0%; height: 100.0%;">Zone: ZONE_D05<br>Risk: 0.0384<br>Terrain Cost: 4.92</div>`)[0];
+                popup_d41cc66ec7f15c33b2665a30598550d0.setContent(html_01214023bf20ea6d06fdab0d0254e82e);
+            
+        
+
+        circle_marker_9bab82ac95ab03333f3cead9c0e0daf2.bindPopup(popup_d41cc66ec7f15c33b2665a30598550d0)
+        ;
+
+        
+    
+    
+            var circle_marker_a7be5832205082c5a112135348d04f9e = L.circleMarker(
+                [-1.6052325520833335, 34.59847869791667],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_7e0a46e71a239ee02e74a3521116505e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33dfbf90a87df950e4c4648e2d3e5da2 = $(`<div id="html_33dfbf90a87df950e4c4648e2d3e5da2" style="width: 100.0%; height: 100.0%;">Zone: ZONE_E01<br>Risk: 0.0668<br>Terrain Cost: 2.15</div>`)[0];
+                popup_7e0a46e71a239ee02e74a3521116505e.setContent(html_33dfbf90a87df950e4c4648e2d3e5da2);
+            
+        
+
+        circle_marker_a7be5832205082c5a112135348d04f9e.bindPopup(popup_7e0a46e71a239ee02e74a3521116505e)
+        ;
+
+        
+    
+    
+            var circle_marker_5b645787c7a0db6675fdbe256259eb8c = L.circleMarker(
+                [-1.597739693877551, 34.799141096938776],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_0b33ce9edddd878af53ec2ef4eab0c38 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e31b67663dc30020533737149ab1237d = $(`<div id="html_e31b67663dc30020533737149ab1237d" style="width: 100.0%; height: 100.0%;">Zone: ZONE_E02<br>Risk: 0.0766<br>Terrain Cost: 3.40</div>`)[0];
+                popup_0b33ce9edddd878af53ec2ef4eab0c38.setContent(html_e31b67663dc30020533737149ab1237d);
+            
+        
+
+        circle_marker_5b645787c7a0db6675fdbe256259eb8c.bindPopup(popup_0b33ce9edddd878af53ec2ef4eab0c38)
+        ;
+
+        
+    
+    
+            var circle_marker_b3666a06a931bd53fcc8e4445879e9ab = L.circleMarker(
+                [-1.6059043523316063, 34.99545347150259],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_feff85ca79b7a9536cfff77b0a09769b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3667e2e5cef62ac55e057da81917bae = $(`<div id="html_a3667e2e5cef62ac55e057da81917bae" style="width: 100.0%; height: 100.0%;">Zone: ZONE_E03<br>Risk: 0.0324<br>Terrain Cost: 4.95</div>`)[0];
+                popup_feff85ca79b7a9536cfff77b0a09769b.setContent(html_a3667e2e5cef62ac55e057da81917bae);
+            
+        
+
+        circle_marker_b3666a06a931bd53fcc8e4445879e9ab.bindPopup(popup_feff85ca79b7a9536cfff77b0a09769b)
+        ;
+
+        
+    
+    
+            var circle_marker_6e84a83c47701309d18bee1ec8cadb81 = L.circleMarker(
+                [-1.599429362745098, 35.199078578431376],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+        var popup_c92ca29309f8796ae714e7e9c13f8f4c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b3b128c2697921bec3016788927c9c7 = $(`<div id="html_6b3b128c2697921bec3016788927c9c7" style="width: 100.0%; height: 100.0%;">Zone: ZONE_E04<br>Risk: 0.0323<br>Terrain Cost: 4.88</div>`)[0];
+                popup_c92ca29309f8796ae714e7e9c13f8f4c.setContent(html_6b3b128c2697921bec3016788927c9c7);
+            
+        
+
+        circle_marker_6e84a83c47701309d18bee1ec8cadb81.bindPopup(popup_c92ca29309f8796ae714e7e9c13f8f4c)
+        ;
+
+        
+    
+    
+            var marker_2fb21013806ddc629472c36fd1ca5408 = L.marker(
+                [-2.401825368956743, 34.599536259541985],
+                {
+}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            var icon_35027087a81fff3917e54bc11afb0481 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c90855919cebe2a7b2406f6c9f4f2baa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49f55658853fb8a2df6591c0f55fd600 = $(`<div id="html_49f55658853fb8a2df6591c0f55fd600" style="width: 100.0%; height: 100.0%;">Ranger Station: North Ranger Station</div>`)[0];
+                popup_c90855919cebe2a7b2406f6c9f4f2baa.setContent(html_49f55658853fb8a2df6591c0f55fd600);
+            
+        
+
+        marker_2fb21013806ddc629472c36fd1ca5408.bindPopup(popup_c90855919cebe2a7b2406f6c9f4f2baa)
+        ;
+
+        
+    
+    
+                marker_2fb21013806ddc629472c36fd1ca5408.setIcon(icon_35027087a81fff3917e54bc11afb0481);
+            
+    
+            var marker_c673ad7c796418cfc573bddcdb6879c2 = L.marker(
+                [-1.9985926341463416, 34.60084234146341],
+                {
+}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            var icon_9239ae46a12ff25a89bfeb2b1e0bf129 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c7f227bb4b3e3f850b076a07b3e81de = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_609dd8c80263fe75c97b57657bd8af87 = $(`<div id="html_609dd8c80263fe75c97b57657bd8af87" style="width: 100.0%; height: 100.0%;">Ranger Station: Central Ranger Station</div>`)[0];
+                popup_5c7f227bb4b3e3f850b076a07b3e81de.setContent(html_609dd8c80263fe75c97b57657bd8af87);
+            
+        
+
+        marker_c673ad7c796418cfc573bddcdb6879c2.bindPopup(popup_5c7f227bb4b3e3f850b076a07b3e81de)
+        ;
+
+        
+    
+    
+                marker_c673ad7c796418cfc573bddcdb6879c2.setIcon(icon_9239ae46a12ff25a89bfeb2b1e0bf129);
+            
+    
+            var marker_1956697ede75d3249297374e61de363e = L.marker(
+                [-1.6052325520833335, 34.59847869791667],
+                {
+}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            var icon_1361ebde705bfee3f7c45d9e6ee878ea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_58ba0356112d7ea36fb069bb824bb1f8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_671bbe27521e5cd2bc50ddca565e8025 = $(`<div id="html_671bbe27521e5cd2bc50ddca565e8025" style="width: 100.0%; height: 100.0%;">Ranger Station: South Ranger Station</div>`)[0];
+                popup_58ba0356112d7ea36fb069bb824bb1f8.setContent(html_671bbe27521e5cd2bc50ddca565e8025);
+            
+        
+
+        marker_1956697ede75d3249297374e61de363e.bindPopup(popup_58ba0356112d7ea36fb069bb824bb1f8)
+        ;
+
+        
+    
+    
+                marker_1956697ede75d3249297374e61de363e.setIcon(icon_1361ebde705bfee3f7c45d9e6ee878ea);
+            
+    
+            var poly_line_17afcbc2a536ee1254b0e9835c5dc9bd = L.polyline(
+                [[-2.401825368956743, 34.599536259541985], [-2.203337688442211, 34.59435472361809], [-2.1969759090909093, 34.79939487373737], [-2.3996996153846153, 34.80330964102564], [-2.401825368956743, 34.599536259541985]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            poly_line_17afcbc2a536ee1254b0e9835c5dc9bd.bindTooltip(
+                `<div>
+                     Route: North Ranger Station (Length: 90.06 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_14ad897413ae12ab3074d57fd573059f = L.polyline(
+                [[-1.9985926341463416, 34.60084234146341], [-2.203337688442211, 34.59435472361809], [-2.1969759090909093, 34.79939487373737], [-1.9985926341463416, 34.60084234146341]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            poly_line_14ad897413ae12ab3074d57fd573059f.bindTooltip(
+                `<div>
+                     Route: Central Ranger Station (Length: 76.77 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e691396407d152536ccec69fbadbf1e7 = L.polyline(
+                [[-1.6052325520833335, 34.59847869791667], [-1.8048787368421053, 34.799114921052634], [-1.6052325520833335, 34.59847869791667]],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "darkgreen", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_ab39386bd7e35f2709dafe952a758b60);
+        
+    
+            poly_line_e691396407d152536ccec69fbadbf1e7.bindTooltip(
+                `<div>
+                     Route: South Ranger Station (Length: 62.93 km)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
