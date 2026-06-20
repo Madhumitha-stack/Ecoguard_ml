@@ -13,6 +13,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.config import settings
 
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+
 # Configure logging
 logging.basicConfig(
     level=getattr(logging, settings.LOG_LEVEL.upper(), logging.INFO),
@@ -29,6 +32,15 @@ app = FastAPI(
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
+)
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Custom Exception Handlers
@@ -88,6 +100,11 @@ async def log_requests(request: Request, call_next):
         f"Status={response.status_code} Latency={duration:.2f}ms"
     )
     return response
+
+# Mount static assets
+static_assets_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "assets")
+os.makedirs(static_assets_path, exist_ok=True)
+app.mount("/assets", StaticFiles(directory=static_assets_path), name="assets")
 
 # Register Routers
 from app.routes import api, views

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+body {
+  @apply bg-background text-slate-100 min-h-screen overflow-x-hidden;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+/* Frost Glass Panel */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Glassmorphism Hover Card */
+.glass-card {
+  background: rgba(30, 41, 59, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.06);
+  transform: translateY(-2px);
+  background: rgba(30, 41, 59, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark theme for standard Leaflet maps */
+.dark-map .leaflet-tile {
+  filter: brightness(0.6) invert(100%) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(1.5);
+}
+
+.dark-map .leaflet-container {
+  background: #0B1020 !important;
+}
+
+/* Grid overlay background */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Glow lines */
+.glow-text-primary {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.glow-text-secondary {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+}
+
+.glow-text-danger {
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
