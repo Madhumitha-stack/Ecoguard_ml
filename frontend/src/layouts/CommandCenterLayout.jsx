@@ -52,7 +52,15 @@ export default function CommandCenterLayout({
   ];
 
   return (
-    <div className="flex h-screen w-screen bg-[#020504] text-slate-100 overflow-hidden font-sans relative">
+    <div 
+      className="flex h-screen w-screen bg-[#020504] text-slate-100 overflow-hidden font-sans relative"
+      style={{
+        backgroundImage: "linear-gradient(to bottom, rgba(2, 5, 4, 0.2), rgba(2, 5, 4, 0.6)), linear-gradient(to right, rgba(2, 5, 4, 0.8) 0%, rgba(2, 5, 4, 0.25) 20%, rgba(2, 5, 4, 0.25) 80%, rgba(2, 5, 4, 0.85) 100%), url('/rainforest_bg.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       
       {/* Immersive Animated Rainforest Background */}
       <RainforestBackground />
