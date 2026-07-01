@@ -82,97 +82,97 @@ export default function SystemMonitoring() {
   };
 
   const getRiskColor = (level) => {
-    if (!level) return 'text-slate-400';
+    if (!level) return 'text-slate-405';
     switch (level.toLowerCase()) {
       case 'high':
-        return 'text-danger border-danger/30 bg-danger/10';
+        return 'text-red-400 border-red-500/25 bg-red-950/30';
       case 'medium':
-        return 'text-warning border-warning/30 bg-warning/10';
+        return 'text-amber-400 border-amber-500/25 bg-amber-950/30';
       case 'low':
       default:
-        return 'text-primary border-primary/30 bg-primary/10';
+        return 'text-emerald-400 border-emerald-500/25 bg-emerald-950/30';
     }
   };
 
   return (
-    <div className="space-y-6 font-share text-xs">
+    <div className="space-y-6 font-sans text-xs">
       
       {/* Title */}
-      <div className="border-b border-white/5 pb-4">
+      <div className="border-b border-emerald-950/15 pb-4">
         <h1 className="text-xl font-bold tracking-wider text-white font-orbitron flex items-center gap-2">
-          <Server className="text-secondary w-5 h-5 animate-pulse" /> SYSTEM_DIAGNOSTICS_CENTER
+          <Server className="text-emerald-400 w-5 h-5 animate-pulse" /> PLATFORM DIAGNOSTICS & SANDBOX
         </h1>
-        <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Uvicorn API Monitor // XGBoost Core Inference Sandbox</p>
+        <p className="text-[10px] text-slate-400 font-mono uppercase tracking-widest mt-1">Uvicorn API Monitor // XGBoost Core Inference Sandbox</p>
       </div>
 
       {/* Datadog cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         
         {/* CPU */}
-        <div className="hud-panel p-4 rounded flex flex-col justify-between relative overflow-hidden h-[120px]">
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-secondary"></div>
+        <div className="glass-panel p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden h-[120px] border border-emerald-900/10 shadow-lg">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500"></div>
           <div className="flex justify-between items-start">
-            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">CPU_UTILIZATION</span>
-            <Cpu className="w-4 h-4 text-secondary" />
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">CPU UTILIZATION</span>
+            <Cpu className="w-4 h-4 text-emerald-450" />
           </div>
           <div className="flex justify-between items-baseline mt-2">
-            <h3 className="text-2xl font-bold text-white font-orbitron glow-text-secondary">{cpuUsage}%</h3>
-            <span className="text-[8px] text-slate-500 font-semibold uppercase">8_CORE_INTEL_XEON</span>
+            <h3 className="text-2xl font-bold text-white font-orbitron">{cpuUsage}%</h3>
+            <span className="text-[8px] text-slate-500 font-semibold uppercase">8-CORE INTEL XEON</span>
           </div>
-          <div className="w-full bg-slate-900 h-1 rounded-full overflow-hidden mt-3">
-            <div className="bg-secondary h-full transition-all duration-500" style={{ width: `${cpuUsage}%` }}></div>
+          <div className="w-full bg-[#05130f]/60 h-1.5 rounded-full overflow-hidden mt-3 border border-emerald-950/30">
+            <div className="bg-emerald-400 h-full transition-all duration-500" style={{ width: `${cpuUsage}%` }}></div>
           </div>
         </div>
 
         {/* Memory */}
-        <div className="hud-panel p-4 rounded flex flex-col justify-between relative overflow-hidden h-[120px]">
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-primary"></div>
+        <div className="glass-panel p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden h-[120px] border border-emerald-900/10 shadow-lg">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-500 to-lime-400"></div>
           <div className="flex justify-between items-start">
-            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">MEM_FOOTPRINT</span>
-            <Database className="w-4 h-4 text-primary" />
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">MEM FOOTPRINT</span>
+            <Database className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="flex justify-between items-baseline mt-2">
-            <h3 className="text-2xl font-bold text-white font-orbitron glow-text-primary">{memoryUsage}%</h3>
+            <h3 className="text-2xl font-bold text-white font-orbitron">{memoryUsage}%</h3>
             <span className="text-[8px] text-slate-500 font-semibold uppercase">6.7 GB / 16 GB</span>
           </div>
-          <div className="w-full bg-slate-900 h-1 rounded-full overflow-hidden mt-3">
-            <div className="bg-primary h-full transition-all duration-500" style={{ width: `${memoryUsage}%` }}></div>
+          <div className="w-full bg-[#05130f]/60 h-1.5 rounded-full overflow-hidden mt-3 border border-emerald-950/30">
+            <div className="bg-lime-400 h-full transition-all duration-500" style={{ width: `${memoryUsage}%` }}></div>
           </div>
         </div>
 
         {/* Latency */}
-        <div className="hud-panel p-4 rounded flex flex-col justify-between relative overflow-hidden h-[120px]">
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-warning"></div>
+        <div className="glass-panel p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden h-[120px] border border-emerald-900/10 shadow-lg">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-amber-500 to-yellow-500"></div>
           <div className="flex justify-between items-start">
-            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">API_RESPONSE_LATENCY</span>
-            <Activity className="w-4 h-4 text-warning" />
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">API LATENCY</span>
+            <Activity className="w-4 h-4 text-amber-400" />
           </div>
           <div className="flex justify-between items-baseline mt-2">
-            <h3 className="text-2xl font-bold text-white font-orbitron glow-text-warning">{apiLatency} ms</h3>
+            <h3 className="text-2xl font-bold text-white font-orbitron">{apiLatency} ms</h3>
             <span className="text-[8px] text-slate-500 font-semibold uppercase">Avg P95 Response</span>
           </div>
           <div className="mt-3 flex items-center justify-between text-[8px] text-slate-500">
-            <span className="flex items-center gap-1"><span className="w-1 h-1 rounded-full bg-warning animate-pulse"></span> SCANNING...</span>
-            <span>UVICORN_ASGI</span>
+            <span className="flex items-center gap-1 font-mono"><span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> SCANNING ACTIVE</span>
+            <span>UVICORN ASGI</span>
           </div>
         </div>
 
         {/* Health */}
-        <div className="hud-panel p-4 rounded flex flex-col justify-between relative overflow-hidden h-[120px]">
+        <div className="glass-panel p-4 rounded-2xl flex flex-col justify-between relative overflow-hidden h-[120px] border border-emerald-900/10 shadow-lg">
           <div className="absolute top-0 left-0 w-full h-[2px] bg-emerald-500"></div>
           <div className="flex justify-between items-start">
-            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">PIPELINE_STATUS</span>
-            <CheckCircle className="w-4 h-4 text-emerald-500" />
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">PIPELINE STATUS</span>
+            <CheckCircle className="w-4 h-4 text-emerald-450" />
           </div>
           <div className="flex justify-between items-baseline mt-2">
-            <h3 className="text-xl font-bold text-white uppercase flex items-center gap-1.5 font-orbitron glow-text-primary">
-              <span className="w-2 h-2 rounded-full bg-primary inline-block animate-pulse"></span> ONLINE
+            <h3 className="text-xl font-bold text-white uppercase flex items-center gap-1.5 font-orbitron">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block animate-pulse shadow-[0_0_8px_#10b981]"></span> ONLINE
             </h3>
-            <span className="text-[8px] text-slate-500 font-semibold uppercase">PORT_8001</span>
+            <span className="text-[8px] text-slate-500 font-semibold uppercase">PORT 8001</span>
           </div>
-          <div className="mt-3 text-[8px] text-slate-500 border-t border-white/5 pt-2 flex justify-between">
+          <div className="mt-3 text-[8px] text-slate-550 border-t border-emerald-950/15 pt-2.5 flex justify-between">
             <span>FastAPI Server</span>
-            <span className="text-primary font-bold">ALL_NOMINAL</span>
+            <span className="text-emerald-400 font-bold">ALL_NOMINAL</span>
           </div>
         </div>
       </div>
@@ -181,14 +181,14 @@ export default function SystemMonitoring() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Form */}
-        <div className="lg:col-span-2 hud-panel p-6 rounded relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-secondary"></div>
+        <div className="lg:col-span-2 glass-panel p-6 rounded-2xl relative overflow-hidden border border-emerald-900/20 shadow-lg">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-500 to-lime-400"></div>
           
-          <div className="mb-5 border-b border-white/5 pb-3">
-            <h3 className="text-xs font-bold text-white font-orbitron uppercase tracking-wider flex items-center gap-1.5">
-              <Play className="text-secondary w-4 h-4" /> MODEL_SANDBOX_HYDRATOR
+          <div className="mb-5 border-b border-emerald-950/15 pb-3">
+            <h3 className="text-xs font-black text-white font-orbitron uppercase tracking-wider flex items-center gap-1.5">
+              <Play className="text-emerald-400 w-4 h-4" /> INFERENCE MODEL SANDBOX
             </h3>
-            <p className="text-[9px] text-slate-500 mt-1">Adjust environmental, geographic, and temporal inputs to compute real-time poaching threat levels.</p>
+            <p className="text-[10px] text-slate-400 mt-1">Adjust environmental, geographic, and temporal inputs to compute real-time poaching threat levels.</p>
           </div>
 
           <form onSubmit={handlePredictSubmit} className="space-y-4 font-mono text-[10px]">
@@ -199,10 +199,10 @@ export default function SystemMonitoring() {
                 <select
                   value={formData.species}
                   onChange={(e) => handleInputChange('species', e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1.5 text-xs text-white outline-none focus:border-secondary font-share"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all font-sans"
                 >
                   {["Buffalo", "Elephant", "Lion", "None Detected", "Rhino", "Zebra"].map(s => (
-                    <option key={s} value={s}>{s}</option>
+                    <option key={s} className="bg-emerald-950 text-white" value={s}>{s}</option>
                   ))}
                 </select>
               </div>
@@ -212,18 +212,18 @@ export default function SystemMonitoring() {
                 <select
                   value={formData.season}
                   onChange={(e) => handleInputChange('season', e.target.value)}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1.5 text-xs text-white outline-none focus:border-secondary font-share"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all font-sans"
                 >
                   {["Dry", "Wet", "Short Dry", "Short Wet"].map(s => (
-                    <option key={s} value={s}>{s}</option>
+                    <option key={s} className="bg-emerald-950 text-white" value={s}>{s}</option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="text-[8px] text-slate-400 uppercase tracking-wide font-bold block mb-1 flex justify-between font-share">
-                  <span>Acoustic Risk</span>
-                  <span className="text-secondary font-bold font-mono">{formData.acoustic_risk.toFixed(2)}</span>
+                <label className="text-[8px] text-slate-400 uppercase tracking-wide font-bold block mb-1 flex justify-between font-sans">
+                  <span>Acoustic Risk Index</span>
+                  <span className="text-emerald-400 font-bold font-mono">{formData.acoustic_risk.toFixed(2)}</span>
                 </label>
                 <input
                   type="range"
@@ -232,7 +232,7 @@ export default function SystemMonitoring() {
                   step="0.05"
                   value={formData.acoustic_risk}
                   onChange={(e) => handleInputChange('acoustic_risk', parseFloat(e.target.value))}
-                  className="w-full h-1 bg-slate-900 rounded appearance-none cursor-pointer accent-secondary mt-2.5"
+                  className="w-full h-1.5 bg-[#05130f]/60 border border-emerald-950/20 rounded appearance-none cursor-pointer accent-emerald-500 mt-2.5"
                 />
               </div>
 
@@ -243,7 +243,7 @@ export default function SystemMonitoring() {
                   step="0.1"
                   value={formData.temperature}
                   onChange={(e) => handleInputChange('temperature', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -256,7 +256,7 @@ export default function SystemMonitoring() {
                   max="100"
                   value={formData.humidity}
                   onChange={(e) => handleInputChange('humidity', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -268,19 +268,19 @@ export default function SystemMonitoring() {
                   min="0"
                   value={formData.rainfall}
                   onChange={(e) => handleInputChange('rainfall', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label className="text-[8px] text-slate-400 uppercase tracking-wide font-bold block mb-1">Animal Density</label>
+                <label className="text-[8px] text-slate-400 uppercase tracking-wide font-bold block mb-1">Animal Density Score</label>
                 <input
                   type="number"
                   step="0.5"
                   min="0"
                   value={formData.animal_density_score}
                   onChange={(e) => handleInputChange('animal_density_score', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -292,7 +292,7 @@ export default function SystemMonitoring() {
                   min="0"
                   value={formData.distance_to_road}
                   onChange={(e) => handleInputChange('distance_to_road', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -304,7 +304,7 @@ export default function SystemMonitoring() {
                   min="0"
                   value={formData.distance_to_ranger_station}
                   onChange={(e) => handleInputChange('distance_to_ranger_station', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -315,7 +315,7 @@ export default function SystemMonitoring() {
                   step="0.0001"
                   value={formData.latitude}
                   onChange={(e) => handleInputChange('latitude', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -326,7 +326,7 @@ export default function SystemMonitoring() {
                   step="0.0001"
                   value={formData.longitude}
                   onChange={(e) => handleInputChange('longitude', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -338,7 +338,7 @@ export default function SystemMonitoring() {
                   min="0"
                   value={formData.historical_incident_count}
                   onChange={(e) => handleInputChange('historical_incident_count', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -350,7 +350,7 @@ export default function SystemMonitoring() {
                   max="23"
                   value={formData.hour}
                   onChange={(e) => handleInputChange('hour', parseInt(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -362,7 +362,7 @@ export default function SystemMonitoring() {
                   max="12"
                   value={formData.month}
                   onChange={(e) => handleInputChange('month', parseInt(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
@@ -374,31 +374,31 @@ export default function SystemMonitoring() {
                   min="0"
                   value={formData.distance_to_water}
                   onChange={(e) => handleInputChange('distance_to_water', parseFloat(e.target.value))}
-                  className="w-full bg-slate-950 border border-white/10 rounded px-2.5 py-1 text-xs text-white outline-none focus:border-secondary font-mono"
+                  className="w-full bg-[#05130f]/60 border border-emerald-900/20 focus:border-emerald-500/40 rounded-xl px-3 py-2 text-xs text-white outline-none transition-all"
                 />
               </div>
 
             </div>
 
-            <div className="pt-2 font-share">
+            <div className="pt-2 font-sans">
               <button
                 type="submit"
                 disabled={predicting}
-                className="w-full py-2.5 bg-gradient-to-r from-secondary to-primary hover:from-secondary/90 hover:to-primary/90 text-xs font-bold text-background rounded uppercase tracking-wider transition-all duration-300 shadow-lg cursor-pointer disabled:opacity-50"
+                className="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-lime-400 hover:from-emerald-450 hover:to-lime-400 text-xs font-black text-slate-950 rounded-xl uppercase tracking-wider transition-all duration-300 shadow-lg cursor-pointer disabled:opacity-50"
               >
-                {predicting ? 'RUNNING_XGBOOST_INFERENCE_JOBS...' : 'COMPUTE_THREAT_PROBABILITY'}
+                {predicting ? 'RUNNING XGBOOST INFERENCE JOB...' : 'COMPUTE THREAT PROBABILITY'}
               </button>
             </div>
           </form>
         </div>
 
         {/* Glowing circular gauge */}
-        <div className="lg:col-span-1 hud-panel p-6 rounded flex flex-col justify-between items-center text-center relative overflow-hidden min-h-[350px] scanlines">
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-secondary"></div>
+        <div className="lg:col-span-1 glass-panel p-6 rounded-2xl flex flex-col justify-between items-center text-center relative overflow-hidden min-h-[350px] border border-emerald-900/20 shadow-lg">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-500 to-lime-400"></div>
           
-          <h3 className="text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-2 font-orbitron">REAL_TIME_INFERENCE_DIAL</h3>
+          <h3 className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-2 font-orbitron">REAL-TIME INFERENCE DIAL</h3>
 
-          <div className="flex-1 flex flex-col justify-center items-center relative w-full font-share">
+          <div className="flex-1 flex flex-col justify-center items-center relative w-full">
             <AnimatePresence mode="wait">
               {predictResult ? (
                 <motion.div
@@ -409,10 +409,10 @@ export default function SystemMonitoring() {
                   className="flex flex-col items-center justify-center space-y-4 w-full"
                 >
                   {/* Glowing Gauge */}
-                  <div className="relative w-40 h-40 flex items-center justify-center rounded-full border border-white/10 bg-slate-950/80 shadow-[0_0_40px_rgba(6,182,212,0.15)]">
+                  <div className="relative w-40 h-40 flex items-center justify-center rounded-full border border-emerald-800/20 bg-emerald-950/20 shadow-[0_0_40px_rgba(16,185,129,0.15)]">
                     
                     {/* Ring glow indicators */}
-                    <div className="absolute inset-2 rounded-full border-[8px] border-slate-900 opacity-60"></div>
+                    <div className="absolute inset-2 rounded-full border-[8px] border-emerald-950/20 opacity-60"></div>
                     <div 
                       className="absolute inset-2 rounded-full border-[8px] border-t-transparent border-l-transparent border-r-transparent transition-all duration-1000"
                       style={{ 
@@ -423,15 +423,15 @@ export default function SystemMonitoring() {
                     ></div>
 
                     <div className="text-center z-10 font-mono">
-                      <span className="text-[8px] text-slate-500 font-bold uppercase tracking-wider block">THREAT_RATE</span>
+                      <span className="text-[8px] text-slate-405 font-bold uppercase tracking-wider block">THREAT RATE</span>
                       <h4 className="text-3xl font-bold text-white font-orbitron mt-0.5">{(predictResult.risk_probability * 100).toFixed(1)}%</h4>
                     </div>
                   </div>
 
                   {/* Level text */}
                   <div className="space-y-1">
-                    <span className="text-[8px] text-slate-500 font-bold block uppercase tracking-wider">CLASSIFICATION</span>
-                    <span className={`px-3 py-1 rounded text-[10px] font-bold uppercase border ${getRiskColor(predictResult.risk_level)}`}>
+                    <span className="text-[8px] text-slate-400 font-bold block uppercase tracking-wider">CLASSIFICATION</span>
+                    <span className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase border ${getRiskColor(predictResult.risk_level)}`}>
                       {predictResult.risk_level}
                     </span>
                   </div>
@@ -447,12 +447,12 @@ export default function SystemMonitoring() {
                   animate={{ opacity: 1 }}
                   className="flex flex-col items-center justify-center p-4 text-center space-y-2.5 font-mono"
                 >
-                  <AlertCircle className="w-10 h-10 text-danger animate-bounce" />
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider font-orbitron">INFERENCE_ERROR</h4>
+                  <AlertCircle className="w-10 h-10 text-red-500 animate-bounce" />
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider font-orbitron">INFERENCE ERROR</h4>
                   <p className="text-[10px] text-slate-400 max-w-[200px] leading-relaxed">
                     {predictError}
                   </p>
-                  <p className="text-[8px] text-slate-500">
+                  <p className="text-[8px] text-slate-550">
                     Verify the backend FastAPI server on port 8001 is active.
                   </p>
                 </motion.div>
@@ -461,13 +461,13 @@ export default function SystemMonitoring() {
                   key="idle"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="flex flex-col items-center justify-center p-4 text-center space-y-3 font-share"
+                  className="flex flex-col items-center justify-center p-4 text-center space-y-3"
                 >
-                  <div className="w-28 h-28 rounded-full border border-dashed border-cyan-400/20 flex items-center justify-center text-slate-600 animate-spin" style={{ animationDuration: '40s' }}>
-                    <Crosshair className="w-7 h-7" />
+                  <div className="w-28 h-28 rounded-full border border-dashed border-emerald-500/20 flex items-center justify-center text-slate-650 animate-spin" style={{ animationDuration: '40s' }}>
+                    <Crosshair className="w-7 h-7 text-emerald-600/40" />
                   </div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-orbitron">AWAITING_INPUTS</h4>
-                  <p className="text-[9px] text-slate-500 max-w-[180px]">
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-orbitron">AWAITING INPUTS</h4>
+                  <p className="text-[10px] text-slate-400 max-w-[180px] leading-relaxed">
                     Fill in environmental variables and click compute to trigger XGBoost model risk classification.
                   </p>
                 </motion.div>
