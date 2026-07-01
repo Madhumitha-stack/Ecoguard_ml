@@ -1,11 +1,11 @@
 Zone,Predicted Risk,Patrol Frequency,Resource Priority
-ZONE_D02,0.7352561685881986,Daily (2-3 times per 24 hours),High
-ZONE_B02,0.4516334016036336,Daily (2-3 times per 24 hours),High
-ZONE_B01,0.3617823594185689,Daily (2-3 times per 24 hours),High
-ZONE_B05,0.12094398153411445,Daily (2-3 times per 24 hours),High
-ZONE_E02,0.11364662616954323,Daily (2-3 times per 24 hours),High
-ZONE_A01,0.11184558939929705,Bi-weekly (3-4 times per week),Medium
-ZONE_D04,0.10973755912330042,Bi-weekly (3-4 times per week),Medium
-ZONE_A02,0.10245409615875549,Bi-weekly (3-4 times per week),Medium
-ZONE_D01,0.08637834287429359,Daily (2-3 times per 24 hours),High
-ZONE_A04,0.06782426968076812,Bi-weekly (3-4 times per week),Medium
+ZONE_B04,1.2223013614118519,Daily (2-3 times per 24 hours),High
+ZONE_B03,0.8851964283331614,Daily (2-3 times per 24 hours),High
+ZONE_A03,0.468723849743361,Daily (2-3 times per 24 hours),High
+ZONE_A04,0.26444648178487007,Daily (2-3 times per 24 hours),High
+ZONE_D01,0.18115910305623453,Daily (2-3 times per 24 hours),High
+ZONE_B02,0.1572143277506682,Daily (2-3 times per 24 hours),High
+ZONE_A05,0.08302385836437277,Daily (2-3 times per 24 hours),High
+ZONE_B01,0.07678265448422499,Daily (2-3 times per 24 hours),High
+ZONE_A02,0.057777324783556724,Bi-weekly (3-4 times per week),Medium
+ZONE_A01,0.054908816896975104,Daily (2-3 times per 24 hours),High

@@ -12,8 +12,8 @@ Our models indicate that poaching threat levels are highly seasonal, showing sig
 ## 30-Day Poaching Trend Forecast
 Our daily Prophet model forecasts poaching counts across the reserve network:
 *   **Forecast Horizon**: 30 Days (Jan 1, 2026 to Jan 30, 2026)
-*   **Model Baseline MAE**: 0.6327
-*   **Model Baseline RMSE**: 0.7693
+*   **Model Baseline MAE**: 0.9184
+*   **Model Baseline RMSE**: 1.0400
 
 *   Daily Forecast Visualizations: [forecast_30day.png](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/forecast_30day.png)
 *   7-Day Zoom Comparison: [forecast_7day.png](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/forecast_7day.png)
@@ -25,16 +25,16 @@ The table below displays the 30-day forecasted threat averages, risk classificat
 
 | Zone ID | Historical Avg (30d) | Forecasted Avg (30d) | Future Threat Level | Escalation Risk |
 |:---|:---:|:---:|:---:|:---:|
-| ZONE_B02 | 0.633 | 0.452 | High | Low |
-| ZONE_B01 | 0.133 | 0.362 | High | High |
-| ZONE_A02 | 0.300 | 0.102 | Medium | Low |
-| ZONE_A01 | 0.100 | 0.112 | Medium | Medium |
-| ZONE_B05 | 0.033 | 0.121 | Medium | High |
-| ZONE_A04 | 0.167 | 0.068 | Medium | Low |
-| ZONE_D02 | 0.067 | 0.735 | High | High |
-| ZONE_D04 | 0.000 | 0.110 | Medium | Low |
-| ZONE_E02 | 0.033 | 0.114 | Medium | High |
-| ZONE_D01 | 0.067 | 0.086 | Medium | High |
+| ZONE_B04 | 0.300 | 1.222 | High | High |
+| ZONE_B01 | 0.067 | 0.077 | Medium | High |
+| ZONE_A03 | 0.233 | 0.469 | High | High |
+| ZONE_B03 | 0.333 | 0.885 | High | High |
+| ZONE_A01 | 0.033 | 0.055 | Medium | High |
+| ZONE_A02 | 0.000 | 0.058 | Medium | Low |
+| ZONE_B02 | 0.033 | 0.157 | High | High |
+| ZONE_A04 | 0.033 | 0.264 | High | High |
+| ZONE_D01 | 0.000 | 0.181 | High | Low |
+| ZONE_A05 | 0.033 | 0.083 | Medium | High |
 
 *   Complete Zone Forecast Visualizations: [zone_forecasts.png](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/zone_forecasts.png)
 
@@ -55,7 +55,7 @@ The Early Warning System flagged the following zones based on temporal and senso
 
 ## Tactical Resource Allocations
 We recommend reallocating field forces according to forecasted threat probabilities:
-*   **Highest Priority (ZONE_D02)**: Requires **Daily patrols (2-3 times per 24 hours)**. Predicts 0.735 average daily incidents.
+*   **Highest Priority (ZONE_B04)**: Requires **Daily patrols (2-3 times per 24 hours)**. Predicts 1.222 average daily incidents.
 
 *   **Region B grids**: Establish permanent checkpoints along northern boundary access roads.
 *   **Low Risk Zones**: Reallocate ranger resources from low-risk grids to training and administrative duties during heavy rain cycles.

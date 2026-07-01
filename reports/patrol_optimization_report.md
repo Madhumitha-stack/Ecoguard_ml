@@ -14,11 +14,11 @@ Based on our multi-factor Priority Score (derived from ML risk probability, acou
 
 | Rank | Zone ID | Priority Score | Avg Risk Score | Avg Acoustic Alert | Historical incident Count |
 |:---:|:---|:---:|:---:|:---:|:---:|
-| 7 | ZONE_B02 | 100.00 | 0.4914 | 0.2852 | 33.0 |
-| 6 | ZONE_B01 | 93.95 | 0.4561 | 0.2773 | 31.0 |
-| 1 | ZONE_A01 | 65.99 | 0.1771 | 0.2678 | 24.0 |
-| 2 | ZONE_A02 | 58.85 | 0.2182 | 0.2705 | 20.0 |
-| 15 | ZONE_D04 | 41.80 | 0.0876 | 0.2571 | 15.0 |
+| 6 | ZONE_B01 | 100.00 | 0.1609 | 0.2679 | 29.0 |
+| 2 | ZONE_A02 | 90.43 | 0.1362 | 0.2806 | 26.0 |
+| 7 | ZONE_B02 | 77.79 | 0.1292 | 0.2638 | 22.0 |
+| 1 | ZONE_A01 | 66.12 | 0.1411 | 0.2684 | 18.0 |
+| 3 | ZONE_A03 | 37.04 | 0.1526 | 0.2857 | 6.0 |
 
 *   Complete Patrol Plan CSV: [patrol_plan.csv](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/patrol_plan.csv)
 *   Interactive Mapped Routes: [patrol_routes.html](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/patrol_routes.html)
@@ -30,33 +30,34 @@ We generated 3 optimized patrol routes originating from our major ranger outpost
 
 1.  **North Ranger Station (`ZONE_A01`) Route**:
     *   **Deployment Coverage**: Covers northern reserve boundaries.
-    *   **Total Distance**: 90.06 km
-    *   **Estimated Walking Time**: 6.00 hours
+    *   **Total Distance**: 88.26 km
+    *   **Estimated Walking Time**: 5.88 hours
 2.  **Central Ranger Station (`ZONE_C01`) Route**:
-    *   **Deployment Coverage**: Integrates high-risk hotspots like `ZONE_B02`.
-    *   **Total Distance**: 76.77 km
-    *   **Estimated Walking Time**: 5.12 hours
+    *   **Deployment Coverage**: Integrates high-risk hotspots like `ZONE_B04`.
+    *   **Total Distance**: 116.28 km
+    *   **Estimated Walking Time**: 7.75 hours
 3.  **South Ranger Station (`ZONE_E01`) Route**:
     *   **Deployment Coverage**: Directs patrols around waterhole migration tracks.
-    *   **Total Distance**: 62.93 km
-    *   **Estimated Walking Time**: 4.20 hours
+    *   **Total Distance**: 71.24 km
+    *   **Estimated Walking Time**: 4.75 hours
 
 ### Summary Performance Metrics
-*   **Average Patrol Distance**: 76.59 km
-*   **High-Risk Threat Coverage Rate**: 57.1%
-*   **Total Routing Footprint**: 229.76 km
-*   **Patrol Efficiency Index**: 2.487
+*   **Average Patrol Distance**: 91.93 km
+*   **High-Risk Threat Coverage Rate**: 50.0%
+*   **Total Routing Footprint**: 275.79 km
+*   **Patrol Efficiency Index**: 1.813
 
 ---
 
 ## Operational Recommendations
 
 ### 1. Route Prioritization
-*   The **Central Ranger Route** must receive the highest daily dispatch priority. It directly intersects the Serengeti's most critical threat corridors, including `ZONE_B02`, which carries a predicted poaching probability of `0.4914`.
+*   The **Central Ranger Route** must receive the highest daily dispatch priority. It directly intersects the Serengeti's most critical threat corridors, including `ZONE_B04`, which carries a predicted poaching probability of `0.1652`.
+
 *   Maximize patrol presence on the **South Ranger Route** during dry-season periods to protect animal density clusters.
 
 ### 2. Forward Outpost (Station) Additions
-*   A new permanent ranger station should be constructed in **Region D (e.g. adjacent to ZONE_D02)**. Currently, Region D requires routes over 62.93 km from South Station, leading to delayed interception capabilities.
+*   A new permanent ranger station should be constructed in **Region D (e.g. adjacent to ZONE_D02)**. Currently, Region D requires routes over 71.24 km from South Station, leading to delayed interception capabilities.
 
 ### 3. Overcoming Accessibility Hotspots
 *   Establish temporary fly-camps in **high elevation/dense vegetation grids** during the dry season. These areas have high terrain cost scores (>8.0), making them difficult to access in routine 24-hour patrols.

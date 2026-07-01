@@ -1,27 +1,27 @@
 Feature,Importance
-historical_incident_count,0.13161504
-species_Zebra,0.121099986
-species_Elephant,0.090320826
-acoustic_risk,0.088538304
-distance_to_road,0.07936091
-species_Buffalo,0.064953335
-hour_cos,0.051157918
-species_Rhino,0.050131343
-species_Lion,0.030340554
-animal_density_score,0.027549777
-distance_to_ranger_station,0.021890266
-latitude,0.020594893
-longitude,0.020200912
-elevation,0.017387815
-distance_to_water,0.01736088
-temperature,0.017335035
-humidity,0.016908336
-month_cos,0.016431995
-season_Short Wet,0.015756063
-hour_sin,0.0155406
-month_sin,0.015348773
-species_None Detected,0.01508841
-rainfall,0.014788488
-season_Dry,0.014015158
-season_Wet,0.013679477
-season_Short Dry,0.012604937
+distance_to_road,0.16362008719187518
+acoustic_risk,0.12007278468813186
+hour_cos,0.1024841461165937
+animal_density_score,0.08825301521279556
+temperature,0.07025060809418152
+latitude,0.06269474939205213
+humidity,0.050237255410000944
+longitude,0.04899217801360123
+distance_to_ranger_station,0.04724501685246304
+hour_sin,0.0440209800395913
+distance_to_water,0.04334605870834471
+elevation,0.03971056288700498
+rainfall,0.035064077852407685
+month_sin,0.01628631165310836
+historical_incident_count,0.014415938085647681
+month_cos,0.014258616782097257
+season_Wet,0.0069661758287719415
+species_Zebra,0.00483661989412738
+season_Dry,0.0047896202583742695
+species_Buffalo,0.004029725183200494
+species_Elephant,0.0036850800101451897
+species_Lion,0.003666568048956102
+season_Short Dry,0.003049592243936232
+species_Rhino,0.0027817784553859893
+species_None Detected,0.002721017352941578
+season_Short Wet,0.00252143574426365

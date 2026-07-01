@@ -1,22 +1,17 @@
 Zone ID,Alert Type,Description,Priority Level
-ZONE_A01,Increased Night Activity,Over 45.1% of violations occur during night hours (22:00 to 04:00).,Medium
-ZONE_A02,Increased Night Activity,Over 55.9% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_A03,Increased Night Activity,Over 57.1% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_A04,Increased Night Activity,Over 56.0% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_A05,Increased Night Activity,Over 80.0% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_B01,Increased Night Activity,Over 48.3% of violations occur during night hours (22:00 to 04:00).,Medium
-ZONE_B02,Increased Night Activity,Over 51.6% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_B03,Increased Night Activity,Over 44.4% of violations occur during night hours (22:00 to 04:00).,Medium
-ZONE_B04,Increased Night Activity,Over 78.9% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_B05,Increased Night Activity,Over 62.2% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_C01,Increased Night Activity,Over 76.5% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_D01,Increased Night Activity,Over 66.7% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_D02,Increased Night Activity,Over 55.6% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_D04,Increased Night Activity,Over 75.0% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_D05,Increased Night Activity,Over 78.6% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_E01,Increased Night Activity,Over 60.0% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_E02,Increased Night Activity,Over 50.0% of violations occur during night hours (22:00 to 04:00).,Medium
-ZONE_E05,Increased Night Activity,Over 66.7% of violations occur during night hours (22:00 to 04:00).,High
-ZONE_B02,Escalating Hotspot,High historical baseline of 33.0 incidents with high forecast threat.,High
-ZONE_B01,Escalating Hotspot,High historical baseline of 31.0 incidents with high forecast threat.,High
-ZONE_A01,Escalating Hotspot,High historical baseline of 24.0 incidents with high forecast threat.,High
+ZONE_A01,Increased Night Activity,Over 81.0% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_A02,Increased Night Activity,Over 63.6% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_A03,Increased Night Activity,Over 73.3% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_A04,Increased Night Activity,Over 72.0% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_A05,Increased Night Activity,Over 73.7% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B01,Increased Night Activity,Over 82.6% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B02,Increased Night Activity,Over 77.3% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B03,Increased Night Activity,Over 69.0% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B04,Increased Night Activity,Over 72.3% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B05,Increased Night Activity,Over 72.7% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_C01,Increased Night Activity,Over 73.3% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_C02,Increased Night Activity,Over 78.9% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_D01,Increased Night Activity,Over 84.2% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_D02,Increased Night Activity,Over 79.0% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_E02,Increased Night Activity,Over 93.3% of violations occur during night hours (22:00 to 04:00).,High
+ZONE_B02,Escalating Hotspot,High historical baseline of 22.0 incidents with high forecast threat.,High

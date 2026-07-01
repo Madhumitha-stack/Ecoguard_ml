@@ -9,8 +9,8 @@ This report delivers key spatial insights into wildlife poaching threat vectors 
 
 ## Hotspot Cluster Analysis
 We applied DBSCAN clustering to the coordinates of all active poaching incidents. With a clustering radius constraint of **2.0 km** and a density threshold of **5 incidents**, we identified:
-*   **Total Hotspot Clusters**: 19
-*   **Noise Points (Isolated Incidents)**: 417
+*   **Total Hotspot Clusters**: 5
+*   **Noise Points (Isolated Incidents)**: 266
 
 These clusters point to systematic threat gateways, typically located near park access paths or adjacent to community boundaries. 
 
@@ -24,16 +24,16 @@ The table below ranks the top 10 most dangerous zones in the reserve based on pr
 
 | Rank | Zone ID | Avg Predicted Risk | Active Incident Count | Avg Acoustic Risk | Historical Incidents |
 |:---:|:---|:---:|:---:|:---:|:---:|
-| 7 | ZONE_B02 | 0.4914 | 159 | 0.2852 | 33.0 |
-| 6 | ZONE_B01 | 0.4561 | 149 | 0.2773 | 31.0 |
-| 2 | ZONE_A02 | 0.2182 | 68 | 0.2705 | 20.0 |
-| 1 | ZONE_A01 | 0.1771 | 51 | 0.2678 | 24.0 |
-| 10 | ZONE_B05 | 0.1341 | 37 | 0.2696 | 6.0 |
-| 4 | ZONE_A04 | 0.0898 | 25 | 0.2633 | 6.0 |
-| 17 | ZONE_D02 | 0.0883 | 27 | 0.2718 | 5.0 |
-| 19 | ZONE_D04 | 0.0876 | 24 | 0.2571 | 15.0 |
-| 22 | ZONE_E02 | 0.0766 | 20 | 0.2523 | 1.0 |
-| 16 | ZONE_D01 | 0.0725 | 24 | 0.2706 | 3.0 |
+| 9 | ZONE_B04 | 0.1652 | 119 | 0.2945 | 1.0 |
+| 6 | ZONE_B01 | 0.1609 | 23 | 0.2679 | 29.0 |
+| 3 | ZONE_A03 | 0.1526 | 105 | 0.2857 | 6.0 |
+| 8 | ZONE_B03 | 0.1456 | 100 | 0.2815 | 3.0 |
+| 1 | ZONE_A01 | 0.1411 | 21 | 0.2684 | 18.0 |
+| 2 | ZONE_A02 | 0.1362 | 22 | 0.2806 | 26.0 |
+| 7 | ZONE_B02 | 0.1292 | 22 | 0.2638 | 22.0 |
+| 4 | ZONE_A04 | 0.1171 | 75 | 0.2800 | 0.0 |
+| 16 | ZONE_D01 | 0.1115 | 19 | 0.2660 | 7.0 |
+| 5 | ZONE_A05 | 0.1057 | 19 | 0.2686 | 7.0 |
 
 *   Complete Ranking CSV: [high_risk_zones.csv](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/high_risk_zones.csv)
 *   Interactive Risk Heatmap: [risk_heatmap.html](file:///c:/Users/ADMIN/OneDrive/Desktop/ecogaurd_ml/reports/risk_heatmap.html)
@@ -42,7 +42,7 @@ The table below ranks the top 10 most dangerous zones in the reserve based on pr
 
 ## Tactical Ranger Patrol Recommendations
 Ranger patrol priorities were computed using risk prediction metrics and real-time acoustic alert indices:
-1. **High Priority Patrol Zones (Score >= 70)**: Requires **Daily patrols (2-3 times per 24 hours)**. Direct deployment instantly to zones like `ZONE_B02`.
+1. **High Priority Patrol Zones (Score >= 70)**: Requires **Daily patrols (2-3 times per 24 hours)**. Direct deployment instantly to zones like `ZONE_B04`.
 
 2. **Medium Priority Patrol Zones (35 <= Score < 70)**: Requires **Bi-weekly patrols (3-4 times per week)**. Focus on access corridors and waterhole nodes.
 3. **Low Priority Patrol Zones (Score < 35)**: Requires **Weekly routine patrols**.
@@ -52,7 +52,7 @@ Ranger patrol priorities were computed using risk prediction metrics and real-ti
 ---
 
 ## Sensor Deployment Recommendations
-*   **Acoustic Network Expansion**: Deploy supplementary acoustic sensors in `ZONE_B02` and adjacent clusters (Hotspots #0 and #1) to improve detection coverage.
+*   **Acoustic Network Expansion**: Deploy supplementary acoustic sensors in `ZONE_B04` and adjacent clusters (Hotspots #0 and #1) to improve detection coverage.
 
 *   **Grid Gaps**: Expand sensors along region boundaries where predicted threat probability is elevated but active incident density remains low.
 
