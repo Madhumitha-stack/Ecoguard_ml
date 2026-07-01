@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 class PredictionService:
     def __init__(self):
         self.model = None
+        self.scaler = None
         self.feature_names = [
             'latitude', 'longitude', 'temperature', 'humidity', 'rainfall',
             'animal_density_score', 'distance_to_road', 'distance_to_water',
@@ -20,6 +21,7 @@ class PredictionService:
             'species_None Detected', 'species_Rhino', 'species_Zebra'
         ]
         self.load_model()
+        self.load_scaler()
 
     def load_model(self):
         # Resolve path relative to project root or settings
@@ -41,6 +43,25 @@ class PredictionService:
         except Exception as e:
             logger.error(f"Failed to deserialize XGBoost model: {str(e)}")
             self.model = None
+
+    def load_scaler(self):
+        scaler_rel_path = "models/scaler.pkl"
+        scaler_path = scaler_rel_path
+        if not os.path.exists(scaler_path):
+            scaler_path = os.path.join(os.path.dirname(__file__), "..", "..", scaler_rel_path)
+            scaler_path = os.path.normpath(scaler_path)
+
+        if not os.path.exists(scaler_path):
+            logger.error(f"StandardScaler file not found at path: {scaler_rel_path}")
+            self.scaler = None
+            return
+
+        try:
+            self.scaler = joblib.load(scaler_path)
+            logger.info(f"Successfully loaded scaler from {scaler_path}")
+        except Exception as e:
+            logger.error(f"Failed to deserialize StandardScaler: {str(e)}")
+            self.scaler = None
 
     def predict(self, data) -> dict:
         if self.model is None:
@@ -101,6 +122,15 @@ class PredictionService:
         
         # Ensure column types and orders are strictly correct
         df_input = df_input[self.feature_names]
+
+        # Scale numerical columns before model inference
+        if self.scaler is not None:
+            cols_to_scale = [
+                'temperature', 'humidity', 'rainfall', 'distance_to_road',
+                'distance_to_water', 'distance_to_ranger_station', 'elevation',
+                'animal_density_score', 'acoustic_risk', 'historical_incident_count'
+            ]
+            df_input[cols_to_scale] = self.scaler.transform(df_input[cols_to_scale])
 
         # Call prediction
         prob = float(self.model.predict_proba(df_input)[0, 1])

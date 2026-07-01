@@ -43,6 +43,7 @@ The table below ranks the top 10 most dangerous zones in the reserve based on pr
 ## Tactical Ranger Patrol Recommendations
 Ranger patrol priorities were computed using risk prediction metrics and real-time acoustic alert indices:
 1. **High Priority Patrol Zones (Score >= 70)**: Requires **Daily patrols (2-3 times per 24 hours)**. Direct deployment instantly to zones like `ZONE_B02`.
+
 2. **Medium Priority Patrol Zones (35 <= Score < 70)**: Requires **Bi-weekly patrols (3-4 times per week)**. Focus on access corridors and waterhole nodes.
 3. **Low Priority Patrol Zones (Score < 35)**: Requires **Weekly routine patrols**.
 
@@ -50,11 +51,10 @@ Ranger patrol priorities were computed using risk prediction metrics and real-ti
 
 ---
 
-## Sensor Placement Recommendations
+## Sensor Deployment Recommendations
 *   **Acoustic Network Expansion**: Deploy supplementary acoustic sensors in `ZONE_B02` and adjacent clusters (Hotspots #0 and #1) to improve detection coverage.
-*   **Grid Gaps**: Expand sensors along region boundaries where predicted threat probability is elevated but active incident density remains low.
 
----
+*   **Grid Gaps**: Expand sensors along region boundaries where predicted threat probability is elevated but active incident density remains low.
 
 ## Future Monitoring Recommendations
 1. **Dynamic Risk Ingestion**: Update spatial maps weekly with recent ranger patrol reports to prevent geographical model stale-out.
