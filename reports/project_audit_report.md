@@ -1,5 +1,9 @@
 # EcoGuard-ML Core: Comprehensive Machine Learning & System Audit Report
-**Role:** Principal Machine Learning Engineer, Senior Data Scientist, and ML Auditor  
+**Author:** Madhumitha  
+**Role:** Developer  
+**GitHub:** <GitHub Link Placeholder>  
+**LinkedIn:** <LinkedIn Link Placeholder>  
+**Email:** <Email Placeholder>  
 **Date:** June 20, 2026  
 **Audited System:** EcoGuard-ML Core Platform (Models, Datasets, Feature Engineering, Threat Forecasting, and Geospatial Intelligence)
 

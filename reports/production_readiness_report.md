@@ -1,5 +1,9 @@
 # Production Readiness Report — EcoGuard-ML Core API & Command Center
-**Author:** Antigravity (Principal QA Engineer & MLOps Architect)  
+**Author:** Madhumitha  
+**Role:** Developer  
+**GitHub:** <GitHub Link Placeholder>  
+**LinkedIn:** <LinkedIn Link Placeholder>  
+**Email:** <Email Placeholder>  
 **Date:** July 1, 2026  
 **Status:** Approved for Release
 

@@ -1,5 +1,9 @@
 # Model Revalidation Report — EcoGuard-ML Pipeline Repair
-**Author:** Antigravity (Principal Machine Learning Engineer & Conservation Intelligence Expert)  
+**Author:** Madhumitha  
+**Role:** Developer  
+**GitHub:** <GitHub Link Placeholder>  
+**LinkedIn:** <LinkedIn Link Placeholder>  
+**Email:** <Email Placeholder>  
 **Date:** July 1, 2026  
 **Status:** Completed
 
